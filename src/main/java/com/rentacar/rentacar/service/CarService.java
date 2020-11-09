@@ -1,6 +1,7 @@
 package com.rentacar.rentacar.service;
 
 import com.rentacar.rentacar.domain.Car;
+import com.rentacar.rentacar.exception.ResourceNotFoundException;
 import com.rentacar.rentacar.persistence.CarRepository;
 import com.rentacar.rentacar.transfer.SaveCarRequest;
 import org.slf4j.Logger;
@@ -35,5 +36,12 @@ public class CarService {
         car.setTransmission(request.getTransmission());
 
         return carRepository.save(car);
+    }
+
+    public Car getCar(long id) {
+        LOGGER.info("Retrieving car {}", id);
+
+        return carRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Car with id: " + id + " does not exist"));
     }
 }
