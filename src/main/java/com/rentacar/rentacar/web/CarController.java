@@ -5,6 +5,8 @@ import com.rentacar.rentacar.domain.Car;
 import com.rentacar.rentacar.service.CarService;
 import com.rentacar.rentacar.transfer.SaveCarRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +35,12 @@ public class CarController {
     public ResponseEntity<Car> getCar(@PathVariable long id) {
         Car car = carService.getCar(id);
         return ResponseEntity.ok(car);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<Car>> getCars(Pageable pageable) {
+        Page<Car> cars = carService.getCars(pageable);
+        return ResponseEntity.ok(cars);
     }
 
     @PutMapping("/{id}")
