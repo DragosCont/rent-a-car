@@ -6,6 +6,7 @@ import com.rentacar.rentacar.persistence.CarRepository;
 import com.rentacar.rentacar.transfer.SaveCarRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +44,21 @@ public class CarService {
 
         return carRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Car with id: " + id + " does not exist"));
+    }
+
+    public Car updateCar(long id, SaveCarRequest request) {
+        LOGGER.info("Updating car {}: {}", id, request);
+
+        Car existingCar = getCar(id);
+
+        BeanUtils.copyProperties(request, existingCar);
+
+        return carRepository.save(existingCar);
+    }
+
+    public void deleteCar(long id) {
+        LOGGER.info("Deleting car {}", id);
+
+        carRepository.deleteById(id);
     }
 }

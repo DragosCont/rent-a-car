@@ -75,6 +75,46 @@ public class CarServiceIntegrationTests {
                 () -> carService.getCar(99999999));
     }
 
+    @Test
+    public void updateCar_whenExistingCar_thenReturnUpdatedCar() {
+        Car createdCar = createCar();
+
+        SaveCarRequest request = new SaveCarRequest();
+        request.setCategory(createdCar.getCategory()+ " Updated");
+        request.setBrand(createdCar.getBrand()+ " Updated");
+        request.setImageUrl(createdCar.getImageUrl()+ " Updated");
+        request.setPrice(10);
+        request.setDoorNumber(2);
+        request.setSeats(2);
+        request.setLuggageNumber(3);
+        request.setTransmission(createdCar.getTransmission() + " Updated");
+
+
+        Car updatedCar = carService.updateCar(createdCar.getId(), request);
+
+        assertThat(updatedCar, notNullValue());
+        assertThat(updatedCar.getId(), is(createdCar.getId()));
+        assertThat(updatedCar.getCategory(), is(request.getCategory()));
+        assertThat(updatedCar.getBrand(), is(request.getBrand()));
+        assertThat(updatedCar.getImageUrl(), is(request.getImageUrl()));
+        assertThat(updatedCar.getPrice(), is(request.getPrice()));
+        assertThat(updatedCar.getDoorNumber(), is(request.getDoorNumber()));
+        assertThat(updatedCar.getSeats(), is(request.getSeats()));
+        assertThat(updatedCar.getLuggageNumber(), is(request.getLuggageNumber()));
+        assertThat(updatedCar.getTransmission(), is(request.getTransmission()));
+    }
+
+    @Test
+    public void deleteCar_whenExistingCar_thenTheCarIsDeleted() {
+        Car createdCar = createCar();
+
+        carService.deleteCar(createdCar.getId());
+
+        Assertions.assertThrows(ResourceNotFoundException.class,
+                () -> carService.getCar(createdCar.getId()));
+
+    }
+
 
     private Car createCar() {
         SaveCarRequest request = new SaveCarRequest();
