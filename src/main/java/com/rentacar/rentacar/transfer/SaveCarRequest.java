@@ -12,16 +12,16 @@ public class SaveCarRequest {
     private String imageUrl;
 
     @NotNull
-    private double price;
+    private Double price;
 
     @NotNull
-    private int doorNumber;
+    private Integer doorNumber;
 
     @NotNull
-    private int seats;
+    private Integer seats;
 
     @NotNull
-    private int luggageNumber;
+    private Integer luggageNumber;
 
     @NotNull
     private String transmission;
@@ -50,35 +50,35 @@ public class SaveCarRequest {
         this.imageUrl = imageUrl;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getDoorNumber() {
+    public Integer getDoorNumber() {
         return doorNumber;
     }
 
-    public void setDoorNumber(int doorNumber) {
+    public void setDoorNumber(Integer doorNumber) {
         this.doorNumber = doorNumber;
     }
 
-    public int getSeats() {
+    public Integer getSeats() {
         return seats;
     }
 
-    public void setSeats(int seats) {
+    public void setSeats(Integer seats) {
         this.seats = seats;
     }
 
-    public int getLuggageNumber() {
+    public Integer getLuggageNumber() {
         return luggageNumber;
     }
 
-    public void setLuggageNumber(int luggageNumber) {
+    public void setLuggageNumber(Integer luggageNumber) {
         this.luggageNumber = luggageNumber;
     }
 
@@ -89,7 +89,6 @@ public class SaveCarRequest {
     public void setTransmission(String transmission) {
         this.transmission = transmission;
     }
-
 
     @Override
     public String toString() {

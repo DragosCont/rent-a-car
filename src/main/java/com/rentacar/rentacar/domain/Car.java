@@ -11,7 +11,7 @@ public class Car {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String category;
 
@@ -21,27 +21,35 @@ public class Car {
     private String imageUrl;
 
     @NotNull
-    private double price;
+    private Double price;
 
     @NotNull
-    private int doorNumber;
+    private Integer doorNumber;
 
     @NotNull
-    private int seats;
+    private Integer seats;
 
     @NotNull
-    private int luggageNumber;
+    private Integer luggageNumber;
 
     @NotNull
     private String transmission;
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getBrand() {
@@ -52,46 +60,6 @@ public class Car {
         this.brand = brand;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getDoorNumber() {
-        return doorNumber;
-    }
-
-    public void setDoorNumber(int doorNumber) {
-        this.doorNumber = doorNumber;
-    }
-
-    public int getSeats() {
-        return seats;
-    }
-
-    public void setSeats(int seats) {
-        this.seats = seats;
-    }
-
-    public String getTransmission() {
-        return transmission;
-    }
-
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
-
-    public int getLuggageNumber() {
-        return luggageNumber;
-    }
-
-    public void setLuggageNumber(int luggageNumber) {
-        this.luggageNumber = luggageNumber;
-    }
-
     public String getImageUrl() {
         return imageUrl;
     }
@@ -100,12 +68,44 @@ public class Car {
         this.imageUrl = imageUrl;
     }
 
-    public String getCategory() {
-        return category;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Integer getDoorNumber() {
+        return doorNumber;
+    }
+
+    public void setDoorNumber(Integer doorNumber) {
+        this.doorNumber = doorNumber;
+    }
+
+    public Integer getSeats() {
+        return seats;
+    }
+
+    public void setSeats(Integer seats) {
+        this.seats = seats;
+    }
+
+    public Integer getLuggageNumber() {
+        return luggageNumber;
+    }
+
+    public void setLuggageNumber(Integer luggageNumber) {
+        this.luggageNumber = luggageNumber;
+    }
+
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
     }
 
     @Override
