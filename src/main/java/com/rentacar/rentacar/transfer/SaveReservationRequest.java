@@ -93,7 +93,7 @@ public class SaveReservationRequest {
 
     @Override
     public String toString() {
-        return "SaveUserRequest{" +
+        return "SaveReservationRequest{" +
                 "pickUpLocation='" + pickUpLocation + '\'' +
                 ", returnLocation='" + returnLocation + '\'' +
                 ", pickupDateAndTime='" + pickupDateAndTime + '\'' +

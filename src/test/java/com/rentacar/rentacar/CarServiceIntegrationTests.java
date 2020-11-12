@@ -33,7 +33,7 @@ public class CarServiceIntegrationTests {
         request.setCategory("Van - Test");
         request.setBrand(null);
         request.setImageUrl("Test2");
-        request.setPrice(15);
+        request.setPrice(15.0);
         request.setDoorNumber(5);
         request.setSeats(7);
         request.setLuggageNumber(7);
@@ -83,7 +83,7 @@ public class CarServiceIntegrationTests {
         request.setCategory(createdCar.getCategory()+ " Updated");
         request.setBrand(createdCar.getBrand()+ " Updated");
         request.setImageUrl(createdCar.getImageUrl()+ " Updated");
-        request.setPrice(10);
+        request.setPrice(10.0);
         request.setDoorNumber(2);
         request.setSeats(2);
         request.setLuggageNumber(3);
